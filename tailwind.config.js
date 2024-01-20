@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        "font-Marcellus": ['Marcellus', 'serif'],
+        "font-Yanone": ['Yanone Kaffeesatz', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }

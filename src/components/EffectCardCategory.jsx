@@ -36,15 +36,18 @@ const EffectCardsCategory = () => {
         {categories.map((category) => (
           <SwiperSlide className="flex flex-col" key={category.name}>
             {/* <div className="bg-white   "> */}
-              <h3 className="flex justify-center uppercase">{category.name}</h3>
+              <h3 className="flex justify-center uppercase  mb-8">{category.name}</h3>
               
             {/* </div> */}
-            <div className="flex flex-nowrap gap-6  ">
+            <div className="flex flex-col gap-6  ">
             {category.levels.map((nivel) => (
-                <button className=" text-sm capitalize" key={nivel.level}>{nivel.level}</button>
+                <button className="px-3 py-1 text-sm capitalize border-[2px]" key={nivel.level}>{nivel.level}</button>
               ))}
-             
             </div>
+
+            <button className="text-sm border-[2px]  mx-6 py-2 mt-4 px-12 ">Iniciar quiz</button>
+
+            
           </SwiperSlide>
         ))}
       </Swiper>
