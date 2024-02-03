@@ -1,6 +1,7 @@
  import axios from "axios"
 const axiosQuiz = axios.create({
-    baseURL: "https://api-quiz-b9lw.onrender.com"
+    baseURL: "https://api-quiz-2v6b.onrender.com"
+    
 })
 
 

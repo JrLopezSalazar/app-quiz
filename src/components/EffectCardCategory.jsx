@@ -6,10 +6,26 @@ import "./EffectCardCategory.css";
 import { EffectCards } from "swiper/modules";
 import { axiosQuiz } from "../config/apiConfig";
 import { getAllQuiz } from "../services/quiz";
+import StartQuiz from "../pages/StartQuiz";
+import { useNavigate } from "react-router-dom";
 
 const EffectCardsCategory = () => {
 
+  const navigate = useNavigate();
+
   const [categories, setCategories] = useState([]);
+  const [selectedLevel, setSelectedLevel] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null)
+
+  const handleLevelSelect = (category, nivel) => {
+    setSelectedCategory(category)
+    setSelectedLevel(nivel);
+    navigate("/startQuiz")
+  };
+
+  // const handleGoToQuiz = () => {
+
+  // }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,29 +57,27 @@ const EffectCardsCategory = () => {
             {/* </div> */}
             <div className="flex flex-col gap-6  ">
             {category.levels.map((nivel) => (
-                <button className="px-3 py-1 text-sm capitalize border-[2px]" key={nivel.level}>{nivel.level}</button>
+                // <button className="px-3 py-1 text-sm capitalize border-[2px]"  key={nivel.level}>{nivel.level}</button>
+                <button
+                className={`px-3 py-1 text-sm capitalize border-[2px] ${selectedLevel === nivel.level ? 'bg-gray-200' : ''}`}
+                key={nivel.level}
+                onClick={() => handleLevelSelect(category.name, nivel.level)}
+              >
+                {nivel.level}
+              </button>
+                // <button className="px-3 py-1 text-sm capitalize border-[2px]" key={nivel.level}>{nivel.level}</button>
               ))}
             </div>
+           
 
-            <button className="text-sm border-[2px]  mx-6 py-2 mt-4 px-12 ">Iniciar quiz</button>
+            {/* <button className="text-sm border-[2px]  mx-6 py-2 mt-4 px-12 ">Iniciar quiz</button> */}
 
             
           </SwiperSlide>
         ))}
       </Swiper>
-        {/* <Swiper
-        effect={'cards'}
-        grabCursor={true}
-        modules={[EffectCards]}
-        className="mySwiper"
-      >
-        <SwiperSlide className=" bg-green-300">hola</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-       
-        
-      </Swiper> */}
-
+   
+ {selectedLevel && selectedLevel && (<StartQuiz category={selectedCategory} selectedLevel={selectedLevel}  />)}
     </>
   );
 };
