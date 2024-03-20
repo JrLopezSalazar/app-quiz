@@ -1,8 +1,10 @@
-// import { create } from 'zustand';
+import { create } from 'zustand';
 
-// const useQuizInfo = create((set) => ({
-//   quizData: [],
-//   setQuizData: (data) => set({ quizData: data }),
-// }));
 
-// export default useQuizInfo;
+
+export const useStore = create((set) => ({
+    selectedCategory: null,
+    selectedLevel: null,
+    setSelectedCategory: (category) => set({ selectedCategory: category }),
+    setSelectedLevel: (level) => set({ selectedLevel: level }),
+  }));

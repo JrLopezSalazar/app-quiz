@@ -8,6 +8,7 @@ const QuizCategory = (  ) => {
   const userStore = userInfo();
   const userName = userStore.user.name;
   
+  
 //console.log(userName)
   // const {
   //   logout
