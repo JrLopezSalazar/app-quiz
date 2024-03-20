@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily:{
         "font-Marcellus": ['Marcellus', 'serif'],
-        "font-Yanone": ['Yanone Kaffeesatz', 'sans-serif']
+        "font-Yanone": ['Yanone Kaffeesatz', 'sans-serif'],
+        "font-Josefin": ['Josefin Sans', 'sans-serif']
       }
     },
   },
