@@ -11,9 +11,28 @@ export const getAllQuiz = async () => {
   
 };
 
-
-
-
+export const getQuizByNameAndLevel = async (quizName, level) => {
+  try {
+    const response = await axiosQuiz.get("/api/quiz");
+    const matchingCategory = response.data.categories.find(category => category.name === quizName);
+    if (matchingCategory) {
+      const matchingLevel = matchingCategory.levels.find(quizLevel => quizLevel.level === level);
+      if (matchingLevel) {
+        console.log(matchingLevel.questions)
+        return matchingLevel.questions;
+      } else {
+        throw new Error(`No se encontró el nivel '${level}' para el cuestionario '${quizName}'.`);
+      }
+    } else {
+      throw new Error(`No se encontró el cuestionario '${quizName}'.`);
+    }
+    
+  } catch (error) {
+    console.error("Error al obtener el cuestionario por nombre y nivel:", error);
+    return []; // Devolver una lista vacía en caso de error
+  }
+  
+};
 export const getQuizByName = async (quizName) => {
  
   //console.log(quizName)
@@ -21,34 +40,9 @@ export const getQuizByName = async (quizName) => {
   const resultCategory = result.data.categories.filter(e => e.name == quizName)
   //console.log(resultCategory) 
   return resultCategory  
-  // try {
-  //   const { data } = await axios.get(url);
-  //   // Aquí puedes manipular los datos según tus necesidades
-  //   // En tu caso, parece que deseas devolver solo el array de quizes
-  //   const resultCategory = data.categories.map(category => category.name );
-  //   console.log(resultCategory)
-  //   return resultCategory;
-  // } catch (error) {
-  //   console.error('Error al obtener el quiz por nombre y nivel:', error);
-  //   throw error; // Puedes manejar el error de la forma que desees
-  // }
+ 
 };
-// export const getQuizByName = async (quizName) => {
-//   const url = `https://api-quiz-2v6b.onrender.com/api/quiz?name=${quizName}&level=level`;
-  
 
-//   try {
-//     const { data } = await axios.get(url);
-//     // Aquí puedes manipular los datos según tus necesidades
-//     // En tu caso, parece que deseas devolver solo el array de quizes
-//     const resultCategory = data.categories.map(category => category.name );
-//     console.log(resultCategory)
-//     return resultCategory;
-//   } catch (error) {
-//     console.error('Error al obtener el quiz por nombre y nivel:', error);
-//     throw error; // Puedes manejar el error de la forma que desees
-//   }
-// };
 
 
 

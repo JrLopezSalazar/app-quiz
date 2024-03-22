@@ -21,8 +21,8 @@ const QuizCategory = (  ) => {
   
   return (
     <section className="bg-[#b34040ea] h-screen ">
-      <h2 className=" flex justify-center  text-4xl pt-12  capitalize font-font-Josefin font-bold" >Hola {userName}</h2>
-      <h3 className="text-2xl justify-center flex font-font-Yanone">Empezamos seleccionando la tecnología y dificultad</h3>
+      <h2 className=" flex justify-center  text-4xl pt-36  capitalize font-font-Kanit font-semibold " >Hola {userName}</h2>
+      <h3 className="text-2xl justify-center flex font-font-Kanit font-normal mt-11">Empecemos seleccionando la tecnología y dificultad</h3>
       <div className=" flex  justify-center mt-11">
       
           <EffectCardsCategory />

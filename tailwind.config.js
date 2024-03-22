@@ -9,7 +9,8 @@ export default {
       fontFamily:{
         "font-Marcellus": ['Marcellus', 'serif'],
         "font-Yanone": ['Yanone Kaffeesatz', 'sans-serif'],
-        "font-Josefin": ['Josefin Sans', 'sans-serif']
+        "font-Josefin": ['Josefin Sans', 'sans-serif'],
+        "font-Kanit": ['Kanit', 'sans-serif']
       }
     },
   },
